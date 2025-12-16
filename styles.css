@@ -1,237 +1,147 @@
-/* --- 1. CORE VARIABLES & RESETS --- */
 :root {
-  /* The Malachite color (Deep Emerald Green) */
-  --color-primary: #044f0e;
-  /* The Gold color (Warm, rich gold) */
-  --color-accent: #bc7e0a;
-  /* Near black for depth */
-  --color-dark: #201601;
-  /* Off-white for readability on dark backgrounds */
-  --color-light: #f8f8f8;
+  --color-dark: #0e1c41;
+  --color-blue: #3c507d;
+  --color-gold: #e0c58e;
+  --color-light: #f4f4f4;
+  --color-muted: #d9cbc2;
 
-  --font-heading: "Playfair Display", serif;
+  --font-heading: "Montserrat", sans-serif;
   --font-body: "Montserrat", sans-serif;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: var(--font-body);
   color: var(--color-light);
-  background-color: var(--color-dark);
+  background: var(--color-dark);
   line-height: 1.6;
 }
 
-/* --- 2. TYPOGRAPHY & HEADINGS --- */
-h1,
-h2,
-h3 {
-  font-family: var(--font-heading);
-  margin-bottom: 0.5em;
-  color: var(--color-accent); /* Headings in Gold */
-}
-
-h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--color-light);
-}
-
-p,
-label {
-  font-size: 1rem;
-  color: var(--color-light);
-}
-
-.section-title {
-  font-size: 2.2rem;
-  text-align: center;
-  margin-bottom: 1.5em;
-  padding-bottom: 0.2em;
-  /* Gold accent line below title */
-  border-bottom: 2px solid var(--color-accent);
-  display: inline-block;
-}
-
-/* --- 3. LAYOUT & SECTIONS --- */
-.content-section {
-  padding: 4em 10%;
+/* CONTAINERS */
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
+  padding: 80px 24px;
+}
+.narrow {
+  max-width: 720px;
 }
 
-/* --- 4. HERO SECTION (Malachite Background) --- */
-.hero {
-  background-color: var(--color-primary); /* Malachite background */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("malachite_texture_optional.jpg"); /* Optional: Add subtle texture */
-  background-size: cover;
-  background-position: center;
-  padding: 6em 10%;
-  text-align: center;
-  border-bottom: 4px solid var(--color-accent); /* Gold border separation */
+/* HEADER */
+.header {
+  background: var(--color-dark);
+  padding: 16px 24px;
 }
 
-.profile-card {
+.header-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly; /* логотип слева, меню справа */
+  align-items: center; /* вертикальное центрирование */
 }
 
-.profile-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1.5em;
-  /* Gold border around photo for luxury */
-  border: 5px solid var(--color-accent);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-}
-
-/* --- 5. BIO & FOCUS SECTIONS --- */
-.bio-section p {
-  max-width: 800px;
-  margin: 1em auto;
-  text-align: left;
-}
-
-.focus-grid {
-  display: flex;
-  gap: 20px;
-  margin-top: 30px;
-  text-align: left;
-}
-
-.focus-item {
-  flex: 1;
-  padding: 25px;
-  background-color: var(--color-dark);
-  border: 1px solid var(--color-primary);
-  border-top: 5px solid var(--color-accent); /* Gold top accent */
-  border-radius: 4px;
+.logo {
+  height: 160px; /* крупный логотип */
+  filter: drop-shadow(0 0 10px rgba(224, 197, 142, 0.9));
   transition: transform 0.3s;
 }
 
-.focus-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.logo:hover {
+  transform: scale(1.05);
 }
 
-.focus-item h4 {
-  color: var(--color-accent);
-  font-size: 1.2rem;
+.nav {
+  display: flex;
+  gap: 40px; /* пространство между пунктами меню */
 }
 
-.icon {
-  font-style: normal;
-  font-size: 1.5rem;
-  margin-right: 10px;
-}
-
-/* --- 6. CONTACT FORM SECTION --- */
-.contact-section {
-  background-color: var(--color-primary); /* Use Malachite for visual break */
-  color: var(--color-light);
-  border-top: 4px solid var(--color-accent);
-  padding: 5em 10%;
-}
-
-.subtitle {
-  font-weight: 300;
-  margin-top: -1em;
-  margin-bottom: 2em;
-  color: var(--color-light);
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.contact-form label {
-  display: block;
-  margin-top: 1em;
+.nav a {
+  color: var(--color-gold); /* желтоватый текст */
+  text-decoration: none;
   font-weight: 600;
-  color: var(--color-accent); /* Gold labels */
+  font-size: 1.25rem; /* крупнее для премиального вида */
+  transition: color 0.3s, transform 0.3s;
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 0.5em;
-  border: 1px solid var(--color-accent);
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  font-size: 1rem;
-  border-radius: 4px;
+.nav a:hover {
+  color: #f4f4f4;
+  transform: translateY(-2px); /* лёгкая анимация hover */
 }
 
-/* Gold Submit Button */
-.submit-button {
-  background-color: var(--color-accent);
-  color: var(--color-dark); /* Dark text on Gold */
-  border: none;
-  padding: 15px 30px;
-  margin-top: 2em;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.submit-button:hover {
-  background-color: #ffc700; /* Slightly lighter gold on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
-}
-
-.form-note {
-  font-size: 0.9rem;
-  margin-top: 1em;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* --- 7. FOOTER --- */
-footer {
-  text-align: center;
-  padding: 1.5em;
-  font-size: 0.8rem;
-  background-color: var(--color-dark);
-  color: rgba(255, 255, 255, 0.6);
-  border-top: 1px solid var(--color-primary);
-}
-
-/* --- 8. MEDIA QUERIES (Mobile Responsiveness) --- */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.2rem;
-  }
-  .profile-photo {
-    width: 150px;
-    height: 150px;
-  }
-  .focus-grid {
+  .header-container {
     flex-direction: column;
-  }
-  .bio-section p {
     text-align: center;
   }
+  .nav {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .logo {
+    height: 120px;
+    margin-bottom: 12px;
+  }
+  .nav a {
+    font-size: 1.1rem;
+  }
 }
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 120px 24px;
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 32px;
+  color: var(--color-muted);
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--color-gold);
+  color: var(--color-dark);
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+.micro-copy {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-top: 8px;
+}
+
+/* FLEX GRID */
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 32px;
+}
+.card {
+  background: var(--color-blue);
+  padding: 32px;
+  border-radius: 8px;
+  flex: 1 1 300px;
+  color: var(--color-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+.card: hover;
