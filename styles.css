@@ -1,12 +1,12 @@
 :root {
   --color-dark: #0e1c41;
-  --color-blue: #3c507d;
+  --color-blue: #162a5c;
   --color-gold: #e0c58e;
-  --color-light: #f4f4f4;
+  --color-light: #ffffff;
   --color-muted: #d9cbc2;
+  --color-beige: #e6dbd2;
 
-  --font-heading: "Montserrat", sans-serif;
-  --font-body: "Montserrat", sans-serif;
+  --font-main: "Montserrat", sans-serif;
 }
 
 /* RESET */
@@ -15,10 +15,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-family: var(--font-body);
-  color: var(--color-light);
+  font-family: var(--font-main);
   background: var(--color-dark);
+  color: var(--color-light);
   line-height: 1.6;
 }
 
@@ -26,122 +27,260 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 24px;
-}
-.narrow {
-  max-width: 720px;
+  padding: 64px 24px;
 }
 
 /* HEADER */
-.header {
-  background: var(--color-dark);
-  padding: 16px 24px;
+
+.header .container {
+  padding-top: 32px;
+  padding-bottom: 24px;
 }
 
-.header-container {
+.header {
+  background: var(--color-dark);
+}
+
+.header-stack {
+  padding-top: 24px;
+}
+
+.nav-top {
   display: flex;
-  justify-content: space-evenly; /* логотип слева, меню справа */
-  align-items: center; /* вертикальное центрирование */
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 0px;
+  margin-top: 16px;
+}
+
+.nav-top a {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+.nav-top a:hover {
+  opacity: 1;
+}
+
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .logo {
-  height: 160px; /* крупный логотип */
-  filter: drop-shadow(0 0 10px rgba(224, 197, 142, 0.9));
-  transition: transform 0.3s;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.nav {
-  display: flex;
-  gap: 40px; /* пространство между пунктами меню */
-}
-
-.nav a {
-  color: var(--color-gold); /* желтоватый текст */
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.25rem; /* крупнее для премиального вида */
-  transition: color 0.3s, transform 0.3s;
-}
-
-.nav a:hover {
-  color: #f4f4f4;
-  transform: translateY(-2px); /* лёгкая анимация hover */
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .nav {
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 12px;
-  }
-  .logo {
-    height: 120px;
-    margin-bottom: 12px;
-  }
-  .nav a {
-    font-size: 1.1rem;
-  }
+  height: 390px;
+  display: block;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 120px 24px;
-}
-.hero h1 {
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 3rem;
-  margin-bottom: 24px;
-}
-.hero p {
-  font-size: 1.125rem;
-  margin-bottom: 32px;
-  color: var(--color-muted);
-}
-.btn-primary {
-  display: inline-block;
-  background: var(--color-gold);
-  color: var(--color-dark);
-  padding: 14px 32px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.3s, opacity 0.3s;
-}
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-.micro-copy {
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  margin-top: 8px;
+  padding-bottom: 64px;
+  margin-top: -16px;
 }
 
-/* FLEX GRID */
-.flex-grid {
+.hero-container {
+  max-width: 900px;
+  padding-top: 0;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+}
+
+/* LIGHT SECTION */
+.light {
+  background: var(--color-beige);
+  color: var(--color-dark);
+}
+
+/* SECTION HEAD */
+.section-head {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.section-head h2 {
+  font-size: 2.2rem;
+}
+
+/* BUTTONS */
+.btn-primary,
+.btn-secondary {
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-dark);
+  display: inline-block;
+  margin-top: 24px;
+}
+
+.btn-secondary {
+  background: var(--color-dark);
+  color: var(--color-gold);
+}
+
+/* WHO WE WORK WITH */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  margin-top: 32px;
 }
-.card {
-  background: var(--color-blue);
-  padding: 32px;
-  border-radius: 8px;
-  flex: 1 1 300px;
+
+.work-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.work-label {
+  background: var(--color-dark);
   color: var(--color-light);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  margin-top: -4px;
 }
-.card: hover;
+
+.work-card h4 {
+  margin: 24px 0 12px;
+  font-size: 1.1rem;
+}
+
+.work-card p {
+  font-size: 0.95rem;
+}
+
+/* HOW WE WORK */
+.how-we-work {
+  background: var(--color-dark);
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.portrait {
+  width: 100%;
+  max-width: 360px;
+}
+
+.how-text h2 {
+  font-size: 2.2rem;
+  color: var(--color-gold);
+  margin-bottom: 24px;
+}
+
+.micro-copy {
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--color-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+/* OUR VALUES */
+.our-values {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.values-title {
+  font-size: 2.2rem;
+  margin-bottom: 64px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+}
+
+.value-card {
+  max-width: 260px;
+}
+
+.value-card img {
+  height: 48px;
+  margin-bottom: 24px;
+}
+
+.value-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .work-grid,
+  .split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .logo {
+    height: 90px;
+  }
+}
+
+@media (max-width: 900px) {
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
