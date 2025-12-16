@@ -31,3 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector(".legal-toggle");
+  const legalPopup = document.querySelector(".legal-popup");
+
+  toggleBtn.addEventListener("click", () => {
+    legalPopup.classList.toggle("show");
+    toggleBtn.textContent = legalPopup.classList.contains("show")
+      ? "Legal notice ▲"
+      : "Legal notice ▼";
+  });
+});
