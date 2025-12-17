@@ -24,7 +24,7 @@ body {
   font-family: var(--font-main);
   background: var(--color-dark);
   color: var(--color-light);
-  line-height: 1.65;
+  line-height: 1.83;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   h1,
@@ -94,15 +94,18 @@ body {
   opacity: 1;
 }
 
+/* Контейнер логотипа */
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 4px;
-  margin-bottom: 1px;
+  align-items: center;
+  margin-bottom: 2rem; /* можно подстроить */
 }
 
+/* Логотип — масштабируем относительно ширины экрана */
 .logo {
-  height: 390px;
+  height: 30vw; /* базовый размер логотипа */
+  max-height: 60vh; /* не вылезает за экран */
   display: block;
 }
 
@@ -130,25 +133,6 @@ body {
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.55;
   color: var(--color-muted);
-}
-
-.scroll-indicator {
-  position: absolute;
-  right: 24px;
-  bottom: 32px;
-
-  color: var(--color-gold);
-  opacity: 0.5;
-
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: scrollHint 2.2s infinite;
-
-  z-index: 10;
-}
-
-.scroll-indicator:hover {
-  opacity: 0.9;
-  transform: translateY(4px);
 }
 
 /* LIGHT SECTION */
@@ -517,7 +501,8 @@ body {
 
   /* логотип — БОЛЬШОЙ, но аккуратный */
   .logo {
-    height: 240px;
+    height: 35vw; /* немного меньше на планшете */
+    max-height: 50vh;
   }
 
   /* ценности: 2 в ряд */
@@ -551,7 +536,8 @@ body {
 
   /* логотип всё ещё крупный */
   .logo {
-    height: 220px;
+    height: 40vw;
+    max-height: 45vh;
   }
 
   .hero {
@@ -579,7 +565,8 @@ body {
 @media (max-width: 576px) {
   /* логотип — уменьшаем минимально */
   .logo {
-    height: 180px;
+    height: 50vw;
+    max-height: 40vh;
   }
 
   .nav-top a {
@@ -618,7 +605,61 @@ body {
 
 @media (max-width: 360px) {
   .logo {
-    height: 160px;
+    height: 55vw;
+    max-height: 35vh;
+  }
+}
+
+/* ===============================
+   LOW HEIGHT SCREENS (OLD HD)
+   Header + Hero fit
+   =============================== */
+@media (max-height: 800px) {
+  /* уменьшаем вертикальные паддинги контейнера */
+  .container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  /* NAV */
+  .nav-top {
+    padding: 8px 20px;
+    gap: 28px;
+  }
+
+  .nav-top a {
+    font-size: 1rem;
+  }
+
+  /* LOGO */
+  .logo {
+    height: 25vw;
+    max-height: 35vh;
+  }
+
+  .logo-wrap {
+    margin-bottom: 0;
+  }
+
+  /* HERO */
+  .hero {
+    margin-top: -8px;
+    padding-bottom: 24px;
+  }
+
+  .hero h1 {
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    line-height: 1.45;
+  }
+
+  /* индикатор прокрутки — либо ниже, либо убрать */
+  .scroll-indicator {
+    bottom: 16px;
+    opacity: 0.35;
   }
 }
 
