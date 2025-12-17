@@ -43,3 +43,36 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Legal notice ▼";
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const indicator = document.querySelector(".scroll-indicator");
+  const nextSection = document.querySelector("#next-section");
+
+  if (!indicator || !nextSection) return;
+
+  // плавный скролл при клике
+  indicator.addEventListener("click", (e) => {
+    e.preventDefault(); // убираем стандартное поведение ссылки
+
+    // корректируем позицию, если есть sticky nav
+    const navHeight = document.querySelector(".nav-top")?.offsetHeight || 0;
+    const sectionTop =
+      nextSection.getBoundingClientRect().top + window.scrollY - navHeight;
+
+    window.scrollTo({
+      top: sectionTop,
+      behavior: "smooth",
+    });
+  });
+
+  // опционально: скрывать стрелку после прокрутки
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > window.innerHeight * 0.5) {
+      indicator.style.opacity = "0";
+      indicator.style.pointerEvents = "none";
+    } else {
+      indicator.style.opacity = "0.5";
+      indicator.style.pointerEvents = "auto";
+    }
+  });
+});

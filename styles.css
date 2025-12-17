@@ -24,29 +24,33 @@ body {
   font-family: var(--font-main);
   background: var(--color-dark);
   color: var(--color-light);
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 0.6em;
+  }
 }
 
 /* CONTAINERS */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 24px 24px;
 }
 
 /* HEADER */
 
 .header .container {
-  padding-top: 32px;
-  padding-bottom: 24px;
+  padding-top: 20px;
+  padding-bottom: 16px;
 }
 
 .header {
   background: var(--color-dark);
-}
-
-.header-stack {
-  padding-top: 24px;
 }
 
 .nav-top {
@@ -61,7 +65,7 @@ body {
   max-width: 1100px;
   margin: 0 auto;
 
-  padding: 16px 24px;
+  padding: 12px 24px;
 
   background: rgba(14, 28, 65, 0.6);
   backdrop-filter: blur(6px);
@@ -80,7 +84,8 @@ body {
 .nav-top a {
   color: var(--color-gold);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.03em;
   font-weight: 800;
   opacity: 0.8;
 }
@@ -92,7 +97,8 @@ body {
 .logo-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  margin-bottom: 1px;
 }
 
 .logo {
@@ -103,8 +109,9 @@ body {
 /* HERO */
 .hero {
   text-align: center;
-  padding-bottom: 64px;
+  padding-bottom: 48px;
   margin-top: -16px;
+  position: relative;
 }
 
 .hero-container {
@@ -113,15 +120,35 @@ body {
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
   margin-bottom: 24px;
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.55;
   color: var(--color-muted);
+}
+
+.scroll-indicator {
+  position: absolute;
+  right: 24px;
+  bottom: 32px;
+
+  color: var(--color-gold);
+  opacity: 0.5;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: scrollHint 2.2s infinite;
+
+  z-index: 10;
+}
+
+.scroll-indicator:hover {
+  opacity: 0.9;
+  transform: translateY(4px);
 }
 
 /* LIGHT SECTION */
@@ -139,12 +166,15 @@ body {
 }
 
 .section-head h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1.25;
 }
 
 /* BUTTONS */
 .btn-primary,
 .btn-secondary {
+  font-size: clamp(0.95rem, 1.2vw, 1rem);
+  line-height: 1.2;
   padding: 14px 32px;
   border-radius: 40px;
   text-decoration: none;
@@ -186,11 +216,13 @@ body {
 
 .work-card h4 {
   margin: 24px 0 12px;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.4;
 }
 
 .work-card p {
   font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 /* HOW WE WORK */
@@ -207,11 +239,12 @@ body {
 
 .portrait {
   width: 100%;
-  max-width: 360px;
+  max-width: 300px;
 }
 
 .how-text h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1.25;
   color: var(--color-gold);
   margin-bottom: 24px;
 }
@@ -230,7 +263,7 @@ body {
   background: var(--color-dark);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 1rem;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   line-height: 1.5;
 }
 
@@ -244,13 +277,40 @@ body {
   gap: 1rem;
 }
 
+/* Левая часть футера: 4 элемента в ряд */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* перенос на маленьких экранах */
+}
+
+/* Элементы футера */
+.footer-left p,
+.footer-left a {
+  margin: 0;
+}
+
+/* LinkedIn */
+.footer-linkedin i {
+  font-size: 1.8rem; /* увеличенная иконка */
+  color: var(--color-gold);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-linkedin:hover i {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
 .legal-toggle {
   cursor: pointer;
   color: #fff;
-  font-weight: bold;
 }
 
 .legal-popup {
+  font-size: 0.85rem;
+  line-height: 1.5;
   max-height: 0; /* скрыт по высоте */
   overflow: hidden;
   transition: max-height 0.5s ease, padding 0.5s ease;
@@ -274,7 +334,8 @@ body {
 }
 
 .values-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1.25;
   margin-bottom: 64px;
 }
 
@@ -302,7 +363,7 @@ body {
 
 .value-card p {
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .contact {
@@ -337,22 +398,22 @@ body {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 4rem; /* расстояние между полями */
+  gap: 1rem; /* расстояние между полями */
   width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.75rem 0.5rem;
-  font-size: 1rem;
+  padding: 0.5rem 0.5rem; /* меньше по вертикали */
+  font-size: 0.95rem; /* чуть меньше текста */
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
 
 .contact-form textarea {
-  min-height: 150px; /* увеличенное поле для сообщения */
+  min-height: 100px; /* увеличенное поле для сообщения */
   margin-bottom: 0.5rem; /* расстояние до кнопки */
   resize: vertical; /* разрешаем менять размер по вертикали */
 }
@@ -365,7 +426,7 @@ body {
 
 .form-grid input {
   flex: 1; /* чтобы поля занимали одинаковое пространство */
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 /* .contact-form .btn-primary {
@@ -389,46 +450,184 @@ body {
 
 .micro-copy {
   margin-top: 0.75rem;
-  font-size: 0.875rem;
-  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffff;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+
+/* =========================
+   <= 1200px (ноутбуки)
+   ========================= */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .nav-top {
+    gap: 32px;
+  }
+
+  .hero {
+    padding-bottom: 40px;
+  }
+
+  .split-grid {
+    gap: 48px;
+  }
+
+  .values-grid {
+    gap: 40px;
+  }
+}
+
+/* =========================
+   <= 992px (14" ноут / планшет)
+   ========================= */
+@media (max-width: 992px) {
+  /* сетки → в колонку */
   .work-grid,
   .split-grid {
     grid-template-columns: 1fr;
   }
 
+  .header .container {
+    padding-top: 16px;
+  }
+
+  .portrait {
+    margin: 0 auto;
+  }
+
+  /* заголовки секций */
   .section-head {
     flex-direction: column;
     gap: 24px;
+    text-align: center;
+  }
+
+  .hero {
+    padding-bottom: 40px;
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
+  /* логотип — БОЛЬШОЙ, но аккуратный */
   .logo {
-    height: 90px;
+    height: 240px;
   }
-}
 
-@media (max-width: 900px) {
+  /* ценности: 2 в ряд */
   .values-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
-}
 
-@media (max-width: 520px) {
-  .values-grid {
-    grid-template-columns: 1fr;
+  .value-card {
+    max-width: none;
   }
 }
 
-@media (max-width: 600px) {
-  .form-grid {
+/* =========================
+   <= 768px (планшеты)
+   ========================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 14px;
+  }
+
+  /* навигация в столбец */
+  .nav-top {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-top a {
+    font-size: 1.1rem;
+  }
+
+  /* логотип всё ещё крупный */
+  .logo {
+    height: 220px;
+  }
+
+  .hero {
+    padding-bottom: 48px;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  /* футер вертикально */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* =========================
+   <= 576px (смартфоны)
+   ========================= */
+@media (max-width: 576px) {
+  /* логотип — уменьшаем минимально */
+  .logo {
+    height: 180px;
+  }
+
+  .nav-top a {
+    font-size: 1.05rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* ценности в одну колонку */
+  .values-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* форма */
+  .form-grid {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    gap: 2.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    height: 160px;
+  }
+}
+
+@keyframes scrollHint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
   }
 }
