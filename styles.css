@@ -662,8 +662,8 @@ body {
 @media (max-width: 576px) {
   /* логотип — уменьшаем минимально */
   .logo {
-    height: 50vw;
-    max-height: 40vh;
+    height: 65vw;
+    max-height: 55vh;
   }
 
   .nav-top a {
@@ -702,8 +702,8 @@ body {
 
 @media (max-width: 360px) {
   .logo {
-    height: 55vw;
-    max-height: 35vh;
+    height: 75vw;
+    max-height: 60vh;
   }
 
   .first-page .hero {
@@ -716,7 +716,7 @@ body {
    LOW HEIGHT SCREENS (OLD HD)
    Header + Hero fit
    =============================== */
-@media (max-height: 800px) {
+@media (max-height: 800px) and (min-width: 769px) {
   /* уменьшаем вертикальные паддинги контейнера */
   .container {
     padding-top: 16px;
