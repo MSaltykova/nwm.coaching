@@ -44,7 +44,7 @@ body {
 
 .full-screen {
   /* width: 100vw; ширина блока = ширина экрана */
-  height: 100vh; /* высота блока = высота видимой области */
+  min-height: 100vh; /* высота блока = высота видимой области */
   display: flex; /* для центрирования контента */
   justify-content: center;
   align-items: center;
@@ -57,6 +57,19 @@ body {
 .first-page {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.first-page .header {
+  flex-shrink: 0;
+}
+
+.first-page .hero {
+  flex: 1;
+  display: flex;
+  align-items: center; /* вертикальный центр */
+  justify-content: center;
+  text-align: center;
 }
 
 /* HEADER */
@@ -487,6 +500,10 @@ body {
    <= 992px (14" ноут / планшет)
    ========================= */
 @media (max-width: 992px) {
+  .first-page .hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
   /* сетки → в колонку */
   .work-grid,
   .split-grid {
@@ -537,6 +554,19 @@ body {
    <= 768px (планшеты)
    ========================= */
 @media (max-width: 768px) {
+  .full-screen {
+    min-height: auto; /* отключаем «экранность» */
+  }
+
+  .first-page {
+    justify-content: flex-start;
+  }
+
+  .first-page .hero {
+    flex: none;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
   .container {
     padding: 20px 14px;
   }
@@ -625,6 +655,11 @@ body {
     height: 55vw;
     max-height: 35vh;
   }
+
+  .first-page .hero {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
 }
 
 /* ===============================
@@ -636,6 +671,20 @@ body {
   .container {
     padding-top: 16px;
     padding-bottom: 16px;
+  }
+
+  .full-screen {
+    min-height: 100vh;
+  }
+
+  .first-page {
+    justify-content: flex-start;
+  }
+
+  .first-page .hero {
+    flex: 1;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   /* NAV */
