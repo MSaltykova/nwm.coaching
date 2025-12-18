@@ -39,3 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav-top");
+  const toggle = document.querySelector(".nav-toggle");
+
+  if (!nav || !toggle) return;
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("is-open");
+  });
+});

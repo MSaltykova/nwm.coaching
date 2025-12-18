@@ -124,6 +124,22 @@ body {
   opacity: 1;
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 6px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 /* Контейнер логотипа */
 .logo-wrap {
   display: flex;
@@ -579,6 +595,40 @@ body {
 
   .nav-top a {
     font-size: 1.1rem;
+  }
+
+  .nav-top {
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 12px 16px;
+  }
+
+  /* показываем кнопку */
+  .nav-toggle {
+    display: block;
+    align-self: center;
+    margin-bottom: 8px;
+  }
+
+  /* скрываем ссылки */
+  .nav-top a {
+    display: none;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.15rem;
+    text-align: center;
+  }
+
+  /* открытое меню */
+  .nav-top.is-open a {
+    display: block;
+  }
+
+  .nav-top.is-open a {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* логотип всё ещё крупный */
