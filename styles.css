@@ -930,234 +930,90 @@ body {
   }
 }
 
-/* ================================
-   ABOUT PAGE SPECIFIC STYLES
-   ================================ */
+/* ===============================
+   ABOUT — NO SNAP / FREE SCROLL
+   =============================== */
 
-/* About Page Header */
-.about-page .header {
-  display: flex;
-  justify-content: flex-start; /* логотип слева */
-  align-items: center; /* вертикальное выравнивание с навбаром */
-  padding: 0 24px; /* отступы слева и справа */
-  background: var(--color-dark);
+.about-page {
+  overflow-x: hidden;
 }
 
-/* Навигация */
-.about-page .nav-top {
-  margin-left: 55px; /* уменьшаем отступ от логотипа */
+/* каждая секция — полный экран */
+.about-page .about-screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+
   display: flex;
-  gap: 45px; /* можно чуть уменьшить расстояние между ссылками */
-  align-items: center; /* центрируем по вертикали */
-}
-/* Логотип для About Page */
-.about-page .logo-wrap {
-  display: flex;
-  justify-content: flex-start; /* слева */
   align-items: center;
-  margin-bottom: 2rem;
-  padding-left: 24px; /* отступ слева */
 }
 
-.about-page .logo-link .logo {
-  height: 12vw; /* увеличен примерно в 5 раз относительно стандартного хедера */
-  max-height: 400px; /* не вылезает за экран */
-  width: auto;
-  display: block;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+/* внутренний контент */
+.about-page .about-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 24px;
 }
 
-/* hover / active */
-.about-page .logo-link:hover .logo {
-  transform: scale(1.02);
-  opacity: 0.9;
+/* Founder */
+.about-page .founder-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
-.about-page .logo-link:active .logo {
-  transform: scale(0.97);
-  opacity: 0.85;
+.about-page .founder-layout img {
+  width: 100%;
+  border-radius: 4px;
 }
 
-/* Чередование темного и светлого фона */
-.about-page .section-dark {
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  padding: 4rem 1rem;
+/* Credentials */
+.about-page .credentials-list {
+  margin-top: 24px;
+  padding-left: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 32px;
 }
 
-.about-page .section-light {
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  padding: 4rem 1rem;
-}
-
-.about-page p {
-  text-align: justify;
-}
-
-.about-page .section-container .our-approach {
-  padding-top: 96px;
-  padding-bottom: 96px;
-}
-
-.our-approach .section-container h2 {
-  font-size: xx-large;
-}
-
-.our-approach .section-container p {
-  text-align: justify;
-}
-
-/* Founder Section */
-.founder-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  margin: 3rem 0;
-}
-
-.founder-photo img {
-  /* max-height: 1500px;
-  border-radius: 6px;
-  width: 100%; */
-  width: 300px;
-}
-
-.founder-text h2 {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  line-height: 1.25;
-  color: var(--color-gold);
-  margin-bottom: 1rem;
-}
-.section-container .credentials-list h3 {
-  line-height: 1.25;
-  color: var(--color-gold);
-  margin-bottom: 1rem;
-}
-
-.founder-text p {
-  margin-bottom: 1rem;
+.about-page .credentials-list li {
   line-height: 1.6;
-  text-align: justify;
 }
 
-.founder-text h3 {
-  color: #e0c58e;
-}
+/* ===============================
+     RESPONSIVE
+     =============================== */
 
-/* Selected Credentials */
-.credentials-title {
-  font-size: 1.25rem;
-  color: var(--color-gold);
-  margin: 2rem 0 1rem;
-}
-
-.credentials-list {
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  padding: 1.5rem;
-  border-radius: 6px;
-  list-style-type: disc;
-  list-style-position: inside;
-}
-
-.credentials-list ul.two-columns {
-  columns: 2;
-  column-gap: 32px;
-}
-
-/* Languages and International Exposure Section */
-.languages-section {
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  padding: 4rem 1rem;
-  padding-top: 96px;
-  padding-bottom: 96px;
-}
-
-.languages-section h2 {
-  color: var(--color-gold);
-  margin-bottom: 1rem;
-}
-
-/* Confidentiality and Ethics Section */
-.confidential-section {
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  padding: 4rem 1rem;
-  text-align: center;
-}
-
-.confidential-section h2 {
-  color: var(--color-gold);
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-.confidential-section p {
-  margin-bottom: 1rem;
-}
-
-.confidential-section .btn-primary {
-  margin-top: 2rem;
-  font-weight: bold;
-}
-
-.confidential-section .micro-copy p {
-  text-align: center;
-  font-style: italic;
-}
-
-/* Контейнеры для текста в секциях */
-.section-container {
-  max-width: 1100px;
-  margin: 3rem auto;
-}
-
-/* RESPONSIVE ADJUSTMENTS */
-
-/* Medium Screens (tablets) */
 @media (max-width: 992px) {
-  .founder-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .about-page .founder-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  .founder-photo img {
-    max-height: 120px;
-  }
-
-  .logo {
-    height: 25vw;
-    max-height: 45px;
+  .about-page .credentials-list {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Small Screens (phones) */
+@media (max-width: 768px) {
+  .about-page .about-screen {
+    min-height: auto; /* важный момент */
+    padding: 96px 0;
+  }
+
+  .about-page .about-content {
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 576px) {
-  .founder-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .about-page .about-screen {
+    padding: 80px 0;
   }
 
-  .founder-photo img {
-    max-height: 100px;
-  }
-
-  .credentials-list {
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .languages-section,
-  .confidential-section {
-    padding: 3rem 1rem;
-  }
-
-  .logo {
-    height: 30vw;
-    max-height: 40px;
+  .about-page .about-content {
+    padding: 0 16px;
   }
 }
