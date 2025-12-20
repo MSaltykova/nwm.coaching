@@ -1096,38 +1096,50 @@ body {
 
 /* MOBILE LOGO CENTERED UNDER HAMBURGER */
 @media (max-width: 768px) {
-  .about-page .about-screen {
-    min-height: auto; /* важный момент */
-    padding: 96px 0;
-  }
-
-  .about-page .about-content {
-    padding: 0 20px;
-  }
+  /* HEADER становится колонкой */
   .about-page .header {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    padding-top: 24px;
   }
 
-  .about-page .logo {
-    order: 2; /* логотип под гамбургером */
-    height: 35vw;
-    max-height: 45vh;
-  }
-
+  /* NAV — первый (гамбургер сверху) */
   .about-page .nav-top {
     order: 1;
+    width: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 12px;
+    margin-left: 0;
   }
 
+  /* LOGO WRAP — ВАЖНО */
+  .about-page .logo-wrap {
+    order: 2; /* под гамбургером */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* идеальный центр */
+    align-items: center;
+    margin: 0;
+  }
+
+  /* LOGO */
+  .about-page .logo {
+    height: 38vw; /* крупный */
+    max-height: 180px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ссылки меню */
   .about-page .nav-top a {
     display: none;
     width: 100%;
     padding: 12px 0;
-    font-size: 1.15rem;
     text-align: center;
+    font-size: 1.15rem;
   }
 
   .about-page .nav-top.is-open a {
@@ -1147,5 +1159,32 @@ body {
 
   .about-page .about-content {
     padding: 0 16px;
+  }
+}
+
+/* ===============================
+   MOBILE REFINEMENT — ABOUT PAGE
+   White sections spacing
+================================ */
+
+@media (max-width: 768px) {
+  /* белые секции about */
+  .about-page .about-screen.white {
+    padding: 16px 0; /* было слишком много */
+  }
+
+  /* контент внутри */
+  .about-page .about-screen.white .about-content {
+    padding: 0 18px;
+  }
+
+  /* заголовки */
+  .about-page .about-screen.white h4 {
+    margin-bottom: 20px;
+  }
+
+  /* абзацы */
+  .about-page .about-screen.white p {
+    margin-bottom: 14px;
   }
 }
