@@ -1188,3 +1188,20 @@ body {
     margin-bottom: 14px;
   }
 }
+
+/* ===============================
+   MOBILE HEADER FIX — ABOUT PAGE
+================================ */
+
+@media (max-width: 768px) {
+  /* уменьшаем верхний отступ секции */
+  .about-page .about-screen.dark {
+    padding-top: 16px;
+  }
+
+  /* шапка */
+  .about-page .header {
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+}
